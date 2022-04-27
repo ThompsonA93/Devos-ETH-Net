@@ -1,0 +1,23 @@
+name: Truffle/Ganache CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  dchain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Ganache
+        run: |
+          npm install -g ganache-cli
+      - name: Install Truffle
+        run: |
+          npm i -g truffle
+      - name: Install Project
+        run: |
+          npm install
+      - name: Run Project Test Suite
+        run: |
+          ./dryrun.sh

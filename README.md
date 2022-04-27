@@ -1,25 +1,20 @@
-# DeVoS-Web3
-Implementation of Smart Contracts using Solidity. Operation intended for local blockchains (Ganache-Cli), compiled using Truffle.
+# Devochain
+| Environment| |
+|-|-|
+Operating System    | Ubuntu 20.04.4 LTS
+Runtime             | Node.js
 
-## Specifications
-    Operating System:   Ubuntu      20.04.3 LTS
-    Packages:           Geth        1.10.15-stable
-                        Ganache     2.5.4-linux-x86_64
-                        Truffle     v5.4.29 (core: 5.4.29)
-                        Solidity    v0.5.16 (solc-js)
+| Dependencies | |
+|-|-|
+npm                         | 8.5
+@truffle/hdwallet-provider  | ^2.0.7,
+dotenv                      | ^16.0.0    
 
 ## Installation
-Operational, but deemed deprecated. Refer to 'launch.sh'.
+Run the following commands for local installation.
+```
+npm install
+```
 
-> sudo add-apt-repository ppa:ethereum/ethereum\
-> sudo apt install ethereum nodejs npm\
-> sudo npm install -g truffle
-
-Also, download Ganache from https://trufflesuite.com/ganache/ and run
-.APPIMAGE as executable.
-Apply Ganache-Configurations to Network specifications in truffle-config.js and deploy given contracts using
-> truffle migrate
-
-If the transactions are registered correctly, everything is set.
-
-Alternatively, use the Remix IDE ( https://remix.ethereum.org/ ) and export the contracts to the Web-IDE. 
+## Execution
+TODO
