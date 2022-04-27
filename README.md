@@ -1,3 +1,5 @@
+[![Truffle/Ganache CI](https://github.com/ThompsonA93/DevoChain/actions/workflows/truffle.yml/badge.svg)](https://github.com/ThompsonA93/DevoChain/actions/workflows/truffle.yml)
+
 # Devochain
 | Environment| |
 |-|-|
