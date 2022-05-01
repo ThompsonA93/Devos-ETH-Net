@@ -6,9 +6,9 @@ contract('BallotOpenIntegration', () => {
 
     it('Deploy archive onto chain', async() => {
         const ballotArchiveContract = await BallotArchiveContract.deployed();
-        assert(ballotArchiveContract.address !== '');
+        assert(ballotArchiveContract.address !== '', "Expected non-null address on deployment, got \'\'");
     });
-    it('Deploy+Emit singular OpenBallot and read from archive contract', async() => {
+    it('Deploy and emit singular OpenBallot and read from archive contract', async() => {
         const ballotArchiveContract = await BallotArchiveContract.deployed();
         
         // Create new Ballot Contract
