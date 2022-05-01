@@ -15,22 +15,21 @@ contract('BallotArchive', () => {
        return result;
     }
 
-    it('Test proper deployment onto chain', async() => {
+    it('Deploy archive onto chain', async() => {
         const ballotArchiveContract = await BallotArchiveContract.deployed();
         assert(ballotArchiveContract.address !== '');
     });
-    it('Test write to and read from the blockchain, singular ballot', async() => {
+    it('Write and read singular ballot', async() => {
         const ballotArchiveContract = await BallotArchiveContract.deployed();
+
         var _creator = '0xA6E62310271Dd0f479Fb2e50cc6f4c43355280c8';
         var _ballot = '0xf48cED837d9a4aD05D137055488782853B862cDd';
-        //var _ballot = generateAddress();
-
         const creation = await ballotArchiveContract.createNewBallot(_creator, _ballot);
-        const storedBallot = await ballotArchiveContract.getBallotByAddress(_ballot);
 
+        const storedBallot = await ballotArchiveContract.getBallotByAddress(_ballot);
         assert(_ballot === storedBallot);
     });
-    it('Test write to and read from the blockchain, multiple ballots', async() => {
+    it('Write and read multiple ballots', async() => {
         const ballotArchiveContract = await BallotArchiveContract.deployed();
         var _creator = '0x73abcE584909D02d59cDC20Ea988277f63864A5f';
         var _ballot1 = '0x576920c331B572ffa619daAf4217049A5455848F';
@@ -47,7 +46,7 @@ contract('BallotArchive', () => {
         assert(storedBallots[1] === _ballot2);
         assert(storedBallots[2] === _ballot3);
     });
-    it('Test read from blockchain, unallocated ballot', async() => {
+    it('Write and read non-existing ballot', async() => {
         const ballotArchiveContract = await BallotArchiveContract.deployed();
         var _ballot = '0x5887D1A31C4aA418D883687FC8895736826bc65f';
         var _expectedBallot = await ballotArchiveContract.getBallotByAddress(_ballot);
