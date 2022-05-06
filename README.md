@@ -48,3 +48,8 @@ truffle migrate --network dev
 ```sh
 truffle test --network dev
 ```
+
+# Deployed Contracts
+Contract: BallotArchive.sol
+Network: Rinkeby
+Address: 0xd223f3F15a0E4992D1D83C3d4B8fD3bf0Ba2cBD6
