@@ -1,3 +1,4 @@
+[![HardHat CI](https://github.com/ThompsonA93/DevoChain/actions/workflows/hardhat-ci.yml/badge.svg)](https://github.com/ThompsonA93/DevoChain/actions/workflows/hardhat-ci.yml)
 
 # Devochain
 | Environment      | Version            |
@@ -15,15 +16,26 @@
 | hardhat                   | ^2.9.3  |
 
 ## Installation
-
+Refer to 'install.sh'
 
 ## Execution
-### Ganache
+The HardHat suite performs as Node, Compiler, Migrator and Tester - Refer to dryrun.sh
 
+Quickstart:
+```sh
+npx hardhat node        # Deploy Node
 
-### Truffle
+npx hardhat compile     # Compile ./contracts/*.sol
+
+npx hardhat run scripts/*.js    # Migrate compiled contracts
+
+npx hardhat test        # Test deployed contracts via ./test/*.js
+```
+
 
 # Basic Sample Hardhat Project
+
+This Project was bootstrapped with [[HardHat](https://hardhat.org/)].
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 

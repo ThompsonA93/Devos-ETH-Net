@@ -3,6 +3,8 @@ name: HardHat CI
 on:
   push:
     branches: [main, hardhat-dev]
+  schedule:
+  - cron: "00 06 * * 1"
 
 jobs:
   dchain:
