@@ -16,7 +16,7 @@ sleep 5
 echo "#2 Running Hardhat-Suite"
 npx hardhat compile
 npx hardhat run --network dev scripts/*.js
-npx hardhat test --network dev
+npx hardhat test
 sleep 5
 
 echo "#3 Killing Process & Cleanup Process"
