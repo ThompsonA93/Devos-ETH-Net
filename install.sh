@@ -3,4 +3,4 @@
 sudo apt install nodejs npm
 
 # Hardhat
-npm install --save-dev hardhat
+sudo npm install --save-dev hardhat
