@@ -1,6 +1,6 @@
 #!/bin/bash
 # NPM as prerequisite to HardHat
-sudo apt install nodejs npm
+apt install nodejs npm
 
 # Hardhat
-sudo npm install --save-dev hardhat
+npm install --save-dev hardhat
