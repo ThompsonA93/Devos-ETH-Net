@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install Project
         run: |
-          sudo ./install.sh
+          ./install.sh
       - name: Run Project Test Suite
         run: |
-          sudo ./dryrun.sh
+          ./dryrun.sh
