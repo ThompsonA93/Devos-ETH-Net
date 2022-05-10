@@ -1,55 +1,40 @@
-[![Truffle/Ganache CI](https://github.com/ThompsonA93/DevoChain/actions/workflows/truffle.yml/badge.svg)](https://github.com/ThompsonA93/DevoChain/actions/workflows/truffle.yml)
 
 # Devochain
-| Environment| Version|
-|-|-|
-Operating System    | Ubuntu 20.04.4 LTS
-Node                | v16.14.2
-Solidity            | 0.8.11 (solc-js)
-Web3.js             | v1.5.3
-Truffle             | v5.4.29 (core: 5.4.29)
-Ganache CLI         | v6.12.2 (ganache-core: 2.13.2)
+| Environment      | Version            |
+| ---------------- | ------------------ |
+| Operating System | Ubuntu 20.04.4 LTS |
+| Hardhat          | 2.9.3              |
 
-| Packages | Version |
-|-|-|
-@truffle/hdwallet-provider  | ^2.0.7,
-dotenv                      | ^16.0.0    
+| Packages                  | Version |
+| ------------------------- | ------- |
+| @nomiclabs/hardhat-ethers | ^2.0.5, |
+| @nomiclabs/hardhat-waffle | ^2.0.3, |
+| chai                      | ^4.3.6, |
+| ethereum-waffle           | ^3.4.4, |
+| ethers                    | ^5.6.5, |
+| hardhat                   | ^2.9.3  |
 
 ## Installation
-Run the following command for local project setup.
-```sh
-npm install       # Fetch project dependencies
-truffle compile   # Create project artifacts
-```
 
 
 ## Execution
 ### Ganache
-To deploy the local chain, run the following command. 
-
-```sh
-npx ganache-cli --port 7545
-```
-_Note_: The port must be equal to the port specified in truffle-config.js.
 
 
 ### Truffle
-To compile, migrate and test the smart contracts in __./contracts__, run one of the following commands
 
-[1.] Compile __./contracts/*.sol__ files and create artifacts saved to __./build__ 
-```sh
-truffle compile
-``` 
-[2.] (Compile and) Migrate artifacts in __./build__ to a given network-endpoint specified in __truffle-config.js__
-```sh
-truffle migrate --network dev
-```
-[3.] Test smart contracts given as per artifacts in __./build__ on a specified network-endpoint.
-```sh
-truffle test --network dev
-```
+# Basic Sample Hardhat Project
 
-# Deployed Contracts
-Contract: BallotArchive.sol
-Network: Rinkeby
-Address: 0xd223f3F15a0E4992D1D83C3d4B8fD3bf0Ba2cBD6
+This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+
+Try running some of the following tasks:
+
+```shell
+npx hardhat accounts
+npx hardhat compile
+npx hardhat clean
+npx hardhat test
+npx hardhat node
+node scripts/sample-script.js
+npx hardhat help
+```

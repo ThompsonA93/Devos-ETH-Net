@@ -1,4 +1,5 @@
 # TODO
+- [] Refactor using HardHat
 - [] Create Contracts
   - [] Authorized Ballot-Contract
   - [] Private Ballot-Contract
