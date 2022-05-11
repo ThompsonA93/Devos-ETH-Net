@@ -5,9 +5,12 @@ async function main() {
   console.log("Deploying contracts with the account:", deployer.address);
 
   const BallotArchive = await hre.ethers.getContractFactory("BallotArchive");
-  const ballotArchive = await BallotArchive.deploy();
-  const ballotArchiveContract = await ballotArchive.deployed();
+  console.log("Built contract. Deploying.");
 
+  const ballotArchive = await BallotArchive.deploy();
+  console.log("Deployed contract. Awaiting receipt by blockchain.");
+
+  const ballotArchiveContract = await ballotArchive.deployed();
   console.log("BallotArchive deployed to:", ballotArchiveContract.address);
 }
 

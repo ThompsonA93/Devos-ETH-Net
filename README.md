@@ -1,9 +1,5 @@
 [![HardHat CI](https://github.com/ThompsonA93/DevoChain/actions/workflows/hardhat-ci.yml/badge.svg)](https://github.com/ThompsonA93/DevoChain/actions/workflows/hardhat-ci.yml)
 
-++++
-**Discontinued branch given reoccuring problems using Hardhat over Infura**
-++++
-
 # Devochain
 | Environment      | Version            |
 | ---------------- | ------------------ |
@@ -19,6 +15,11 @@
 | ethers                    | ^5.6.5, |
 | hardhat                   | ^2.9.3  |
 
+| Contract             | Network | Address                                    |
+| -------------------- | ------- | ------------------------------------------ |
+| BallotArchive (v1.2) | Rinkeby | 0xE4934b4007a417e0764F08Cbcd7F1db3EA66e69E |
+| BallotArchive (v1.2) | Rinkeby | 0x0A8E23242ccb792610Aa9a31e0A0c3223e5A9e90 |
+| BallotArchive (v1.2) | Rinkeby | 0x2319D79949e0760f4045593E9d2C9b476B333Cd9 |
 ## Installation
 Refer to 'install.sh'
 
