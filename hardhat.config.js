@@ -25,11 +25,11 @@ module.exports = {
   defaultNetwork: "dev",
   networks: {
     dev: {
-      url: "http://127.0.0.1:8545/"
+      url: "http://127.0.0.1:8545/",
     },
     rinkeby: {
       url: process.env.RINKEBY_RPC_URL,
-      accounts: [process.env.LOCAL_PRIVATE_KEY]
+      accounts: [process.env.LOCAL_PRIVATE_KEY],
     },
   },
   etherscan: {

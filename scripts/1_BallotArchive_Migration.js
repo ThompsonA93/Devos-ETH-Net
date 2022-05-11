@@ -4,10 +4,11 @@ async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with the account:", deployer.address);
 
-  const BallotArchive = await ethers.getContractFactory("BallotArchive");
+  const BallotArchive = await hre.ethers.getContractFactory("BallotArchive");
   const ballotArchive = await BallotArchive.deploy();
+  const ballotArchiveContract = await ballotArchive.deployed();
 
-  console.log("BallotArchive deployed to:", ballotArchive.address);
+  console.log("BallotArchive deployed to:", ballotArchiveContract.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
