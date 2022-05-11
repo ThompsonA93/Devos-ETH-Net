@@ -1,10 +1,13 @@
 const hre = require("hardhat");
 
 async function main() {
-  const BallotArchive = await hre.ethers.getContractFactory("BallotArchive");
+  const [deployer] = await ethers.getSigners();
+  console.log("Deploying contracts with the account:", deployer.address);
+
+  const BallotArchive = await ethers.getContractFactory("BallotArchive");
   const ballotArchive = await BallotArchive.deploy();
-  await ballotArchive.deployed();
-  console.log("BallotArchive deployed to:", BallotArchive.address);
+
+  console.log("BallotArchive deployed to:", ballotArchive.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

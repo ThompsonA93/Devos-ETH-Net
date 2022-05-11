@@ -15,6 +15,12 @@
 | ethers                    | ^5.6.5, |
 | hardhat                   | ^2.9.3  |
 
+| Deployed Contract     | Network | Address                                    |
+| --------------------- | ------- | ------------------------------------------ |
+| Ballot Archive (v1.1) | Rinkeby | 0xd223f3F15a0E4992D1D83C3d4B8fD3bf0Ba2cBD6 | 
+| Ballot Archive (v1.2) | Rinkeby | 0x38Cde40B482e5EC928728195066D9E28C0252898 |
+
+
 ## Installation
 Refer to 'install.sh'
 
@@ -37,7 +43,7 @@ To deploy a new node to the network, run
 ```sh
 npx hardhat clean
 npx hardhat compile
-npx hardhat run scripts/1_BallotArchive_Migration.js --network rinkeby
+npx hardhat run scripts/1_BallotArchive_Migration.js --network rinkeby --verbose
 ```
 To verify the contract, run
 ```sh
@@ -61,3 +67,10 @@ npx hardhat node
 node scripts/sample-script.js
 npx hardhat help
 ```
+
+# Troubleshooting / Errors
+> Q1: Hardhat is stuck on migration with [hardhat:core:hre Creating provider for network rinkeby +76ms] using option (--verbose).\
+> A1: Check if the options in .env are anotated using '. " is buggy.
+
+> Q2: Hardhat deployment gives back the smart contracts address as 'undefined'.
+> A2: As with A1, the use of " in .env appears buggy. Use ' instead
