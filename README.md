@@ -23,15 +23,26 @@ The HardHat suite performs as Node, Compiler, Migrator and Tester - Refer to dry
 
 Quickstart:
 ```sh
-npx hardhat node        # Deploy Node
+npx hardhat node                # Deploy Node
 
-npx hardhat compile     # Compile ./contracts/*.sol
+npx hardhat compile             # Compile ./contracts/*.sol
 
 npx hardhat run scripts/*.js    # Migrate compiled contracts
 
-npx hardhat test        # Test deployed contracts via ./test/*.js
+npx hardhat test                # Test deployed contracts via ./test/*.js
 ```
 
+### Deploying to Network
+To deploy a new node to the network, run
+```sh
+npx hardhat clean
+npx hardhat compile
+npx hardhat run scripts/1_BallotArchive_Migration.js --network rinkeby
+```
+To verify the contract, run
+```sh
+npx hardhat verify --network rinkeby $ArchiveAddress
+```
 
 # Basic Sample Hardhat Project
 
