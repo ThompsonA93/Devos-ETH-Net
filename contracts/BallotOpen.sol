@@ -83,4 +83,67 @@ contract BallotOpen{
         if(_choice == 2){ proVotes += 1; }
         totalVotes += 1;
     }
+
+/*  address public creator;
+    address public ballotAddress;
+    string public title;
+    string public metainfo;
+    uint public startTime;
+    uint public endTime;
+    uint public totalVotes = 0;
+    uint public proVotes = 0;
+    */
+    function getBallotInformation() public view returns (string[8] memory){
+        string memory _creator = toAsciiString(creator);
+        string memory _ballotAddress = toAsciiString(ballotAddress);
+        string memory _startTime = uintToString(startTime);
+        string memory _endtime = uintToString(endTime);
+        string memory _totalVotes = uintToString(totalVotes);
+        string memory _proVotes = uintToString(proVotes);
+        
+        string[8] memory strData;
+        strData = [_creator, _ballotAddress, title, metainfo, _startTime, _endtime, _totalVotes, _proVotes];
+        return strData;
+    }
+
+    function toAsciiString(address x) internal pure returns (string memory) {
+        bytes memory s = new bytes(40);
+        for (uint i = 0; i < 20; i++) {
+            bytes1 b = bytes1(uint8(uint(uint160(x)) / (2**(8*(19 - i)))));
+            bytes1 hi = bytes1(uint8(b) / 16);
+            bytes1 lo = bytes1(uint8(b) - 16 * uint8(hi));
+            s[2*i] = char(hi);
+            s[2*i+1] = char(lo);            
+        }
+        return string(s);
+    }
+
+    function char(bytes1 b) internal pure returns (bytes1 c) {
+        if (uint8(b) < 10) return bytes1(uint8(b) + 0x30);
+        else return bytes1(uint8(b) + 0x57);
+    }
+
+
+    function uintToString(uint256 value) internal pure returns (string memory) {
+        // Inspired by OraclizeAPI's implementation - MIT licence
+        // https://github.com/oraclize/ethereum-api/blob/b42146b063c7d6ee1358846c198246239e9360e8/oraclizeAPI_0.4.25.sol
+
+        if (value == 0) {
+            return "0";
+        }
+        uint256 temp = value;
+        uint256 digits;
+        while (temp != 0) {
+            digits++;
+            temp /= 10;
+        }
+        bytes memory buffer = new bytes(digits);
+        while (value != 0) {
+            digits -= 1;
+            buffer[digits] = bytes1(uint8(48 + uint256(value % 10)));
+            value /= 10;
+        }
+        return string(buffer);
+    }
+
 }
