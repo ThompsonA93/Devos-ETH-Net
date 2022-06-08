@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
-require("@nomiclabs/hardhat-etherscan")
+require("@nomiclabs/hardhat-etherscan");
+require("hardhat-gas-reporter");
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -37,4 +38,8 @@ module.exports = {
   mocha: {
     timeout: 3600000, // 1 Hour max
   },
+  gasReporter: {
+    enabled: true,    // Disable Plugin: false
+    //gasPriceApi: "https://api.etherscan.io/api?module=proxy&action=eth_gasPrice" // Fetched per default
+  }
 };

@@ -20,7 +20,7 @@ if [[ $hs == "thompson-VBox" ]]
 then
     # To expensive to run externally
     echo "#3 Running Hardhat Testsuite for Contract Performance"
-    npx hardhat test
+    npx hardhat test --grep NativePerformanceTest
     echo "Testing Contract Performance completed."
     sleep 5
 fi
