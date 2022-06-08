@@ -2,18 +2,18 @@ const { assert, expect } = require("chai");
 const { ethers } = require("hardhat");
 
 // Archive-Node required as dependency given smart contract construction
-describe("BallotOpenTest", function () {
-  const zero_address = '0x0000000000000000000000000000000000000000';
+describe("BallotOpenNativeTest", function () {
+  const zero_address = '0x00000000000000000000000000000000000000000';
 
   it('Deploy archive onto chain', async function(){
-    const BallotArchive = await hre.ethers.getContractFactory("BallotArchive");
-    const ballotArchive = await BallotArchive.deploy();
+    const BallotArchive_native = await hre.ethers.getContractFactory("BallotArchive_native");
+    const ballotArchive = await BallotArchive_native.deploy();
     const ballotArchiveContract = await ballotArchive.deployed();
     assert(ballotArchiveContract.address !== '', "Expected non-null address on deployment, got \'\'");
 });  
 it('Write and read singular OpenBallot', async function(){
-    const BallotArchive = await hre.ethers.getContractFactory("BallotArchive");
-    const ballotArchive = await BallotArchive.deploy();
+    const BallotArchive_native = await hre.ethers.getContractFactory("BallotArchive_native");
+    const ballotArchive = await BallotArchive_native.deploy();
     const ballotArchiveContract = await ballotArchive.deployed();
         
     // Create new Ballot Contract
@@ -22,8 +22,8 @@ it('Write and read singular OpenBallot', async function(){
     _metainfo = "Lorem Ipsum";
     _votingDays = 30;
 
-    const BallotOpen = await hre.ethers.getContractFactory("BallotOpen");
-    const ballotOpen = await BallotOpen.deploy(_archiveAddress, _title, _metainfo, _votingDays);
+    const BallotOpen_native = await hre.ethers.getContractFactory("BallotOpen_native");
+    const ballotOpen = await BallotOpen_native.deploy(_archiveAddress, _title, _metainfo, _votingDays);
     const ballotOpenContract = await ballotOpen.deployed();
 
     // Read expected information from chain
@@ -47,8 +47,8 @@ it('Write and read singular OpenBallot', async function(){
     });
 
     it('Pass singular vote', async function(){
-        const BallotArchive = await hre.ethers.getContractFactory("BallotArchive");
-        const ballotArchive = await BallotArchive.deploy();
+        const BallotArchive_native = await hre.ethers.getContractFactory("BallotArchive_native");
+        const ballotArchive = await BallotArchive_native.deploy();
         const ballotArchiveContract = await ballotArchive.deployed();
                     
         // Create new Ballot and deploy to chain
@@ -58,8 +58,8 @@ it('Write and read singular OpenBallot', async function(){
         _votingDays = 30;
 
         
-        const BallotOpen = await hre.ethers.getContractFactory("BallotOpen");
-        const ballotOpen = await BallotOpen.deploy(_archiveAddress, _title, _metainfo, _votingDays);
+        const BallotOpen_native = await hre.ethers.getContractFactory("BallotOpen_native");
+        const ballotOpen = await BallotOpen_native.deploy(_archiveAddress, _title, _metainfo, _votingDays);
         const ballotOpenContract = await ballotOpen.deployed();
 
         // Invoke vote
@@ -74,8 +74,8 @@ it('Write and read singular OpenBallot', async function(){
     });
 
     it('Pass multiple votes, single voter (expected: revert)', async function(){
-        const BallotArchive = await hre.ethers.getContractFactory("BallotArchive");
-        const ballotArchive = await BallotArchive.deploy();
+        const BallotArchive_native = await hre.ethers.getContractFactory("BallotArchive_native");
+        const ballotArchive = await BallotArchive_native.deploy();
         const ballotArchiveContract = await ballotArchive.deployed();
                             
         // Create new Ballot and deploy to chain
@@ -84,32 +84,28 @@ it('Write and read singular OpenBallot', async function(){
         _metainfo = "Lorem Ipsum";
         _votingDays = 30;
         
-        const BallotOpen = await hre.ethers.getContractFactory("BallotOpen");
-        const ballotOpen = await BallotOpen.deploy(_archiveAddress, _title, _metainfo, _votingDays);
+        const BallotOpen_native = await hre.ethers.getContractFactory("BallotOpen_native");
+        const ballotOpen = await BallotOpen_native.deploy(_archiveAddress, _title, _metainfo, _votingDays);
         const ballotOpenContract = await ballotOpen.deployed();
 
         // Invoke double voting (forbidden)
         await ballotOpenContract.vote(1);
 
-        try{
-            await ballotOpenContract.vote(2);
-        }catch(err){
-            assert(err.message === 'Transaction reverted without a reason string', "Received unexpected error message: \n\t" + err.message);
-        }
+        await expect(ballotOpenContract.vote(2)).to.be.reverted;
     
     });
 
     it('Pass single votes, multiple voters', async function(){
-        const BallotArchive = await hre.ethers.getContractFactory("BallotArchive");
-        const ballotArchive = await BallotArchive.deploy();
+        const BallotArchive_native = await hre.ethers.getContractFactory("BallotArchive_native");
+        const ballotArchive = await BallotArchive_native.deploy();
         const ballotArchiveContract = await ballotArchive.deployed();
 
         _archiveAddress = ballotArchiveContract.address;
         _title = "My First Ballot";
         _metainfo = "Lorem Ipsum";
         _votingDays = 30;
-        const BallotOpen = await hre.ethers.getContractFactory("BallotOpen");
-        const ballotOpen = await BallotOpen.deploy(_archiveAddress, _title, _metainfo, _votingDays);
+        const BallotOpen_native = await hre.ethers.getContractFactory("BallotOpen_native");
+        const ballotOpen = await BallotOpen_native.deploy(_archiveAddress, _title, _metainfo, _votingDays);
         const ballotOpenContract = await ballotOpen.deployed();
 
         // Invoke multiple votes using different accounts

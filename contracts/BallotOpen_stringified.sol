@@ -14,17 +14,16 @@ interface IBallotArchive {
  * @notice Stores information on a single ballot. Anyone may cast a vote
  * @dev Dependant on primary smart contract "BallotArchive", @see constructor()
  */
-contract BallotOpen{
-    address public archiveAddress;
-
-    address public creator;
-    address public ballotAddress;
-
+contract BallotOpen_stringified{
+    string public archiveAddress;
+    string public creator;
+    string public ballotAddress;
     string public title;
     string public metainfo;
+
+    // Refactoring of values majorly unbeneficial due checks
     uint public startTime;
     uint public endTime;
-    
     uint public totalVotes = 0;
     uint public proVotes = 0;
 
@@ -45,17 +44,17 @@ contract BallotOpen{
      * TODO:: Check if saving archiveAddress is necessary
      */
     constructor(address _archiveAddress, string memory _title, string memory _metainfo, uint _votingDays){
-        archiveAddress = _archiveAddress;
-
-        creator = msg.sender;
-        ballotAddress = address(this);
+        archiveAddress = toAsciiString(_archiveAddress);
+        creator = toAsciiString(msg.sender);
+        ballotAddress = toAsciiString(address(this));
 
         title = _title;
         metainfo = _metainfo;
         startTime = block.timestamp;
         endTime = startTime + (_votingDays * 1 days);
 
-        IBallotArchive(archiveAddress).createNewBallot(creator, ballotAddress);
+
+        IBallotArchive(_archiveAddress).createNewBallot(msg.sender, address(this));
     }
 
     /**
@@ -84,26 +83,8 @@ contract BallotOpen{
         totalVotes += 1;
     }
 
-/*  address public creator;
-    address public ballotAddress;
-    string public title;
-    string public metainfo;
-    uint public startTime;
-    uint public endTime;
-    uint public totalVotes = 0;
-    uint public proVotes = 0;
-    */
     function getBallotInformation() public view returns (string[8] memory){
-        string memory _creator = toAsciiString(creator);
-        string memory _ballotAddress = toAsciiString(ballotAddress);
-        string memory _startTime = uintToString(startTime);
-        string memory _endtime = uintToString(endTime);
-        string memory _totalVotes = uintToString(totalVotes);
-        string memory _proVotes = uintToString(proVotes);
-        
-        string[8] memory strData;
-        strData = [_creator, _ballotAddress, title, metainfo, _startTime, _endtime, _totalVotes, _proVotes];
-        return strData;
+
     }
 
     function toAsciiString(address x) internal pure returns (string memory) {
@@ -123,7 +104,7 @@ contract BallotOpen{
         else return bytes1(uint8(b) + 0x57);
     }
 
-
+    // TODO Refactor: This is Openzeppelin's String-Contract
     function uintToString(uint256 value) internal pure returns (string memory) {
         // Inspired by OraclizeAPI's implementation - MIT licence
         // https://github.com/oraclize/ethereum-api/blob/b42146b063c7d6ee1358846c198246239e9360e8/oraclizeAPI_0.4.25.sol
@@ -145,5 +126,4 @@ contract BallotOpen{
         }
         return string(buffer);
     }
-
 }
