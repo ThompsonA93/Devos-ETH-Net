@@ -10,17 +10,20 @@ sleep 5
 echo "#2 Running Hardhat Testsuite for Contract-Network Deployment"
 npx hardhat compile
 npx hardhat run --network $NETWORK scripts/*.js
-npx hardhat test --network $NETWORK --grep BallotArchiveNativeTest
-npx hardhat test --network $NETWORK --grep BallotOpenNativeTest
+npx hardhat test --network $NETWORK --grep V2BallotArchiveTest
+npx hardhat test --network $NETWORK --grep V2BallotOpenTest
+npx hardhat test --network $NETWORK --grep V3BallotArchiveTest
+npx hardhat test --network $NETWORK --grep V3BallotOpenTest
 echo "Testing Contract-Network Deployment completed."
 sleep 5
 
 hs=`hostname`
-if [[ $hs == "thompson-VBox" ]]
+if [[ $hs == "thompson-VBox" ]] # Use Hostname of local device: thompson-VBox
 then
     # To expensive to run externally
     echo "#3 Running Hardhat Testsuite for Contract Performance"
-    npx hardhat test --grep NativePerformanceTest
+    npx hardhat test --grep V2PerformanceTest
+    npx hardhat test --grep V3PerformanceTest
     echo "Testing Contract Performance completed."
     sleep 5
 fi

@@ -7,7 +7,7 @@ pragma solidity ^0.8;
  * @notice Stores ballots and their creators in form of mappings
  * @dev Storing data by external smart contract calls.
  */
-contract BallotArchive_stringified{
+contract BallotArchiveV3{
     /****************************************/
     /* Variables                            */
     /****************************************/

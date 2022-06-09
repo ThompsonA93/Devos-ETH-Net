@@ -39,7 +39,7 @@ module.exports = {
     timeout: 3600000, // 1 Hour max
   },
   gasReporter: {
-    enabled: true,    // Disable Plugin: false
+    enabled: false,    // Disable Plugin: false
     //gasPriceApi: "https://api.etherscan.io/api?module=proxy&action=eth_gasPrice" // Fetched per default
   }
 };
