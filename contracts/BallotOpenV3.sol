@@ -53,7 +53,6 @@ contract BallotOpenV3{
         startTime = block.timestamp;
         endTime = startTime + (_votingDays * 1 days);
 
-
         IBallotArchive(_archiveAddress).createNewBallot(msg.sender, address(this));
     }
 
