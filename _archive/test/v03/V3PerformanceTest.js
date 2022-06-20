@@ -44,6 +44,7 @@ describe("V3PerformanceTest", function () {
       assert(ballotOpenContract.address !== '', "Expected non-null address on deployment, got \'\'");  
     }
   });  
+  /*
   it('Deploy Randomized: 100 Contracts, Stringlength 100', async function(){
     const BallotArchiveV3 = await hre.ethers.getContractFactory("BallotArchiveV3");
     const ballotArchive = await BallotArchiveV3.deploy();
@@ -97,5 +98,5 @@ describe("V3PerformanceTest", function () {
       assert(ballotOpenContract.address !== '', "Expected non-null address on deployment, got \'\'");  
     }
   });  
-
+*/
 });

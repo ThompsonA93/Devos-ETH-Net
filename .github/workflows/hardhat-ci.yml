@@ -2,7 +2,7 @@ name: HardHat CI
 
 on:
   push:
-    branches: [main, hardhat-dev]
+    branches: [main]
   schedule:
   - cron: "00 06 * * 1"
 
