@@ -3,17 +3,21 @@ const hre = require("hardhat");
 async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with the account:", deployer.address);
-
   console.log("Account balance: ", (await deployer.getBalance()).toString() );
 
-  const BallotArchive = await hre.ethers.getContractFactory("BallotArchive");
-  console.log("Built contract. Deploying.");
+  _archiveAddress = "0xf96D2E0f246C9ED18e5D250D3C3Eb30E1C47f6Fd";
+  _title = "The First Ballot";
+  _metainfo = "Lorem Ipsum";
+  _votingDays = 30;
 
-  const ballotArchive = await BallotArchive.deploy();
+  const BallotOpen = await hre.ethers.getContractFactory("BallotOpen");
+  console.log("Created ContractFactory for BallotOpen")
+
+  const ballotOpen = await BallotOpen.connect(deployer).deploy(_archiveAddress, _title, _metainfo, _votingDays);
   console.log("Deployed contract. Awaiting receipt by blockchain.");
 
-  const ballotArchiveContract = await ballotArchive.deployed();
-  console.log("BallotArchive deployed to:", ballotArchiveContract.address);
+  const ballotOpenContract = await ballotOpen.deployed();
+  console.log("BallotArchive deployed to:", ballotOpenContract.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

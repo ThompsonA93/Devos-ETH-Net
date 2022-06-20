@@ -38,8 +38,4 @@ module.exports = {
   mocha: {
     timeout: 3600000, // 1 Hour max
   },
-  gasReporter: {
-    enabled: false,    // Disable Plugin: false
-    //gasPriceApi: "https://api.etherscan.io/api?module=proxy&action=eth_gasPrice" // Fetched per default
-  }
 };
