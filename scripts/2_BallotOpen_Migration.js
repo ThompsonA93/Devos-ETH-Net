@@ -6,9 +6,9 @@ async function main() {
   console.log("Account balance: ", (await deployer.getBalance()).toString() );
 
   _archiveAddress = "0xf96D2E0f246C9ED18e5D250D3C3Eb30E1C47f6Fd";
-  _title = "The First Ballot";
-  _metainfo = "Lorem Ipsum";
-  _votingDays = 30;
+  _title = "Make Avocado Toast an austrian national dish";
+  _metainfo = "Austria for Avocados #avocado @avocado_toast";
+  _votingDays = 45;
 
   const BallotOpen = await hre.ethers.getContractFactory("BallotOpen");
   console.log("Created ContractFactory for BallotOpen")
