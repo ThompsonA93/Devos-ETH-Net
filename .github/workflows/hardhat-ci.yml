@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-  - cron: "00 06 * * 1"
+    - cron: "00 06 * * 1"
 
 jobs:
   dchain:
@@ -16,8 +16,8 @@ jobs:
           ./install.sh
       - name: Run Project Test Suite
         env:
-          RINKEBY_RPC_URL: ${{ secrets.RINKEBY_RPC_URL }}
+          GOERLI_RPC_URL: ${{ secrets.GOERLI_RPC_URL }}
           ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
           LOCAL_PRIVATE_KEY: ${{ secrets.LOCAL_PRIVATE_KEY }}
         run: |
-          ./dryrun.sh
+          ./__dryrun.sh

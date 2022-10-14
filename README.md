@@ -17,9 +17,9 @@
 
 | Contracts             | Network | Address                                    |
 | -------------------- | ------- | ------------------------------------------ |
-| BallotArchive (v1.2) | Rinkeby | 0xE4934b4007a417e0764F08Cbcd7F1db3EA66e69E |
-| BallotArchive (v1.2) | Rinkeby | 0x0A8E23242ccb792610Aa9a31e0A0c3223e5A9e90 |
-| BallotArchive (v1.3) | Rinkeby | 0xf96D2E0f246C9ED18e5D250D3C3Eb30E1C47f6Fd |
+| BallotArchive (v1.2) | Rinkeby (Deprecated) | 0xE4934b4007a417e0764F08Cbcd7F1db3EA66e69E |
+| BallotArchive (v1.2) | Rinkeby (Deprecated) | 0x0A8E23242ccb792610Aa9a31e0A0c3223e5A9e90 |
+| BallotArchive (v1.3) | Rinkeby (Deprecated) | 0xf96D2E0f246C9ED18e5D250D3C3Eb30E1C47f6Fd |
 
 
 ## Hardhat

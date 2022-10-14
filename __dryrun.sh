@@ -1,6 +1,6 @@
 #!/bin/bash
 # See hardhat.config.js
-NETWORK=dev
+NETWORK=dev # or goerli
 PORT=8545
 
 npx hardhat clean
@@ -18,15 +18,7 @@ npx hardhat test --network $NETWORK --grep BallotIntegrationTest
 echo "Testing Contract-Network Deployment completed."
 sleep 5
 
-hs=`hostname`
-if [[ $hs == "thompson-VBox" ]] # Use Hostname of local device: thompson-VBox
-then
-    # To expensive to run externally
-    echo "#3 Running Hardhat Testsuite for Contract Performance"
-    npx hardhat test --network $NETWORK --grep PerformanceTest
-    echo "Testing Contract Performance completed."
-    sleep 5
-fi
 
-echo "#4 Killing Process & Cleanup Process"
-sudo kill `sudo lsof -t -i:$PORT`
+echo "#3 Running Hardhat Testsuite for Contract Performance"
+npx hardhat test --network $NETWORK --grep PerformanceTest
+echo "Testing Contract Performance completed."

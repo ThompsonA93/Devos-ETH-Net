@@ -27,8 +27,8 @@ module.exports = {
     dev: {
       url: "http://127.0.0.1:8545/",
     },
-    rinkeby: {
-      url: process.env.RINKEBY_RPC_URL,
+    goerli: {
+      url: process.env.GOERLI_RPC_URL,
       accounts: [process.env.LOCAL_PRIVATE_KEY],
     },
   },
@@ -39,6 +39,6 @@ module.exports = {
     timeout: 3600000, // 1 Hour max
   },
   gasReporter: {
-    enabled: false
+    enabled: false,
   },
 };
