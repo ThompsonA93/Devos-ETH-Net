@@ -1,9 +1,8 @@
-require("@nomiclabs/hardhat-waffle");
-require("@nomiclabs/hardhat-etherscan");
-require("hardhat-gas-reporter");
+require("@nomicfoundation/hardhat-toolbox");
 
 const dotenv = require("dotenv");
 dotenv.config();
+
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -15,14 +14,10 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
 
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
+/** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.4",
+  solidity: "0.8.17",
   networks: {
     dev: {
       url: "http://127.0.0.1:8545/",
@@ -37,8 +32,5 @@ module.exports = {
   },
   mocha: {
     timeout: 3600000, // 1 Hour max
-  },
-  gasReporter: {
-    enabled: false,
   },
 };

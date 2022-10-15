@@ -5,8 +5,8 @@ PORT=8545
 
 npx hardhat clean
 
-echo "#1 Testing setup of HardHat ETH-Node"
-npx hardhat node --hostname 127.0.0.1 --port $PORT &
+echo "#1 Testing setup of HardHat ETH-Node"hardhat node --hostname 127.0.0.1 --port $
+npx PORT &
 sleep 5
 
 echo "#2 Running Hardhat Testsuite for Contract-Network Deployment"
@@ -17,7 +17,6 @@ npx hardhat test --network $NETWORK --grep BallotOpenTest
 npx hardhat test --network $NETWORK --grep BallotIntegrationTest
 echo "Testing Contract-Network Deployment completed."
 sleep 5
-
 
 echo "#3 Running Hardhat Testsuite for Contract Performance"
 npx hardhat test --network $NETWORK --grep PerformanceTest
