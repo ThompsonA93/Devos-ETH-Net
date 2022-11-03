@@ -5,7 +5,7 @@ async function main() {
   console.log("Deploying contracts with the account:", deployer.address);
   console.log("Account balance: ", (await deployer.getBalance()).toString());
 
-  _archiveAddress = "0xf96D2E0f246C9ED18e5D250D3C3Eb30E1C47f6Fd";
+  _archiveAddress = "0x80fe2853D1B4aB30405A8EEb3611963EEA14a127";
   _title = "Make Avocado Toast an austrian national dish";
   _metainfo = "Austria for Avocados #avocado @avocado_toast";
   _votingDays = 45;
@@ -22,7 +22,7 @@ async function main() {
   console.log("Deployed contract. Awaiting receipt by blockchain.");
 
   const ballotOpenContract = await ballotOpen.deployed();
-  console.log("BallotArchive deployed to:", ballotOpenContract.address);
+  console.log("BallotOpen deployed to:", ballotOpenContract.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

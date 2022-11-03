@@ -26,6 +26,10 @@
 | BallotArchive (v1.3) | Rinkeby (Deprecated) | 0xf96D2E0f246C9ED18e5D250D3C3Eb30E1C47f6Fd |
 | BallotArchive (v1.3) | Sepolia              | 0x80fe2853D1B4aB30405A8EEb3611963EEA14a127 |
 
+| Contracts         | Network | Address                                    |
+| ----------------- | ------- | ------------------------------------------ |
+| BallotOpen (v1.3) | Sepolia | 0xE9B505Cab014F0b32F2f4138cd3e8B5F237978e8 |
+
 ## Installation
 
 Refer to 'install.sh'
