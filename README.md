@@ -6,18 +6,13 @@
 | ---------------- | ---------------- |
 | Operating System | Ubuntu 20.04 LTS |
 | Node             | 16.17.0          |
-| Yarn             | 1.22.19          |
+| NPM              | 8.15.0           |
 
-| Packages             | Version |
-| -------------------- | ------- |
-| chai                 | 4.3.6   |
-| dotenv               | 16.0.3  |
-| ethers               | 5.7.1   |
-| hardhat              | 2.12.0  |
-| hardhat-gas-reporter | 1.0.9   |
-| husky                | 8.0.0   |
-| solidity-coverage    | 0.8.2   |
-| typechain            | 8.1.0   |
+| Packages | Version |
+| -------- | ------- |
+| dotenv   | ^16.0.3 |
+| hardhat  | ^2.12.2 |
+| husky    | ^8.0.1  |
 
 | Contracts            | Network              | Address                                    |
 | -------------------- | -------------------- | ------------------------------------------ |
