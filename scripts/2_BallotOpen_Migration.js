@@ -3,7 +3,7 @@ const hre = require("hardhat");
 async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with the account:", deployer.address);
-  console.log("Account balance: ", (await deployer.getBalance()).toString() );
+  console.log("Account balance: ", (await deployer.getBalance()).toString());
 
   _archiveAddress = "0xf96D2E0f246C9ED18e5D250D3C3Eb30E1C47f6Fd";
   _title = "Make Avocado Toast an austrian national dish";
@@ -11,9 +11,14 @@ async function main() {
   _votingDays = 45;
 
   const BallotOpen = await hre.ethers.getContractFactory("BallotOpen");
-  console.log("Created ContractFactory for BallotOpen")
+  console.log("Created ContractFactory for BallotOpen");
 
-  const ballotOpen = await BallotOpen.connect(deployer).deploy(_archiveAddress, _title, _metainfo, _votingDays);
+  const ballotOpen = await BallotOpen.connect(deployer).deploy(
+    _archiveAddress,
+    _title,
+    _metainfo,
+    _votingDays
+  );
   console.log("Deployed contract. Awaiting receipt by blockchain.");
 
   const ballotOpenContract = await ballotOpen.deployed();
