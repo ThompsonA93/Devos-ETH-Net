@@ -1,10 +1,9 @@
 #!/bin/bash
 # See hardhat.config.js
-NETWORK=dev # or goerli
+NETWORK=dev
 PORT=8545
 
 yarn clean
-
 printf "! Using local port $PORT\n"
 if [[ -z "$(lsof -i:$PORT)" ]]; then
     printf "Port $PORT is not in use. Creating local Hardhat-Node.\n"

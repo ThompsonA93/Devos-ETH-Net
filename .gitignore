@@ -1,12 +1,13 @@
-build/
-node_modules/
-.env
-node_modules
 .env
 coverage
 coverage.json
 typechain
 
+build/
+node_modules/
+node_modules
+
 #Hardhat files
 cache
 artifacts
+

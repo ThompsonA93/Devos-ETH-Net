@@ -1,5 +1,5 @@
 #!/bin/bash
-ETH_ENDPOINT=goerli
+ETH_ENDPOINT=sepolia
 
 yarn clean
 yarn compile
