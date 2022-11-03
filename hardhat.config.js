@@ -1,7 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
-
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config();
 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
@@ -29,7 +27,7 @@ module.exports = {
     sepolia: {
       url: process.env.SEPOLIA_RPC_URL,
       accounts: [process.env.LOCAL_PRIVATE_KEY],
-    }
+    },
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,

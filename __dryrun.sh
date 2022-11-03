@@ -1,6 +1,6 @@
 #!/bin/bash
 # See hardhat.config.js
-NETWORK=dev # or goerli
+NETWORK="dev" # or goerli
 PORT=8545
 
 npx hardhat clean
