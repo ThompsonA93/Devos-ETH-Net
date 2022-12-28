@@ -21,9 +21,12 @@
 | BallotArchive (v1.3) | Rinkeby (Deprecated) | 0xf96D2E0f246C9ED18e5D250D3C3Eb30E1C47f6Fd |
 | BallotArchive (v1.3) | Sepolia              | 0x80fe2853D1B4aB30405A8EEb3611963EEA14a127 |
 
-| Contracts         | Network | Address                                    |
-| ----------------- | ------- | ------------------------------------------ |
-| BallotOpen (v1.3) | Sepolia | 0xE9B505Cab014F0b32F2f4138cd3e8B5F237978e8 |
+| Contracts            | Network | Address                                    |
+| -------------------- | ------- | ------------------------------------------ |
+| BallotArchive (v1.3) | Sepolia | 0x67299F7a686a3E4eBfC79Ea7d8B5782Cc729a060 |
+| BallotOpen (v1.3)    | Sepolia | 0x2AE5d81f2BBb7Eb2e299A8a3f741c3557A5eBd0B |
+| BallotOpen (v1.3)    | Sepolia | 0x0B29823524b7359C6834a2478528cFE5CdA4674e |
+| BallotOpen (v1.3)    | Sepolia | 0x1Ee5da8EC9C12c03f2b61AE3F570fC298383fD59 |
 
 ## Installation
 

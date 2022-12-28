@@ -5,7 +5,7 @@ async function main() {
   console.log("Deploying contracts with the account:", deployer.address);
   console.log("Account balance: ", (await deployer.getBalance()).toString());
 
-  _archiveAddress = "0x80fe2853D1B4aB30405A8EEb3611963EEA14a127";
+  _archiveAddress = "0x..."; // FIXME :: Enter archive address here
   _title = "Make Avocado Toast an austrian national dish";
   _metainfo = "Austria for Avocados #avocado @avocado_toast";
   _votingDays = 45;
