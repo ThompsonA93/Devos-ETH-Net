@@ -14,8 +14,8 @@ interface IBallotArchive {
  * @notice Stores information on a single ballot. Anyone may cast a vote
  * @dev Dependant on primary smart contract "BallotArchive", @see constructor()
  */
-contract BallotOpen{
-    struct Ballot{
+contract BallotOpen {
+    struct Ballot {
         address archiveAddress;
         address creator;
         address ballotAddress;
@@ -27,7 +27,6 @@ contract BallotOpen{
         uint proVotes;
     }
     Ballot ballot;
-
 
     /**
      * @dev map voters to given votes.
@@ -45,7 +44,12 @@ contract BallotOpen{
      * TODO:: Aggregate votes on expiration
      * TODO:: Check if saving archiveAddress is necessary
      */
-    constructor(address _archiveAddress, string memory _title, string memory _metainfo, uint _votingDays){
+    constructor(
+        address _archiveAddress,
+        string memory _title,
+        string memory _metainfo,
+        uint _votingDays
+    ) {
         ballot = Ballot(
             _archiveAddress,
             msg.sender,
@@ -58,13 +62,16 @@ contract BallotOpen{
             0
         );
 
-        IBallotArchive(ballot.archiveAddress).createNewBallot(ballot.creator, ballot.ballotAddress);
+        IBallotArchive(ballot.archiveAddress).createNewBallot(
+            ballot.creator,
+            ballot.ballotAddress
+        );
     }
 
     /**
      * @dev modifier requiring that given address has not passed any votes yet
      */
-    modifier hasNotVoted(address _voter){
+    modifier hasNotVoted(address _voter) {
         require(votes[_voter] != 1 && votes[_voter] != 2);
         _;
     }
@@ -72,18 +79,22 @@ contract BallotOpen{
     /**
      * @dev modifier requiring that following code is only executed within given time limit
      */
-    modifier validVotingTime(){
+    modifier validVotingTime() {
         require(block.timestamp < ballot.endTime);
         _;
     }
 
     /**
      * @dev casts a vote given modifiers and increments voting counts
-     * @param _choice as 1 (No) or 2 (Yes). 
+     * @param _choice as 1 (No) or 2 (Yes).
      */
-    function vote(uint8 _choice) public validVotingTime() hasNotVoted(msg.sender){        
+    function vote(
+        uint8 _choice
+    ) public validVotingTime hasNotVoted(msg.sender) {
         votes[msg.sender] = _choice;
-        if(_choice == 2){ ballot.proVotes += 1; }
+        if (_choice == 2) {
+            ballot.proVotes += 1;
+        }
         ballot.totalVotes += 1;
     }
 
@@ -91,7 +102,21 @@ contract BallotOpen{
      * @return Every field of the Struct as object value
      * @dev To replace oneday to return struct
      */
-    function getFullBallotInformation() public view returns(address, address, address, string memory,  string memory, uint, uint, uint, uint){
+    function getFullBallotInformation()
+        public
+        view
+        returns (
+            address,
+            address,
+            address,
+            string memory,
+            string memory,
+            uint,
+            uint,
+            uint,
+            uint
+        )
+    {
         return (
             ballot.archiveAddress,
             ballot.creator,
