@@ -1,5 +1,5 @@
 {
-  "name": "devos-contracts",
+  "name": "devos-eth-net",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,13 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThompsonA93/Devos-Contracts.git"
+    "url": "git+https://github.com/ThompsonA93/Devos-ETH-Net.git"
   },
   "author": "ThompsonA93",
   "bugs": {
-    "url": "https://github.com/ThompsonA93/Devos-Contracts/issues"
+    "url": "https://github.com/ThompsonA93/Devos-ETH-Net/issues"
   },
-  "homepage": "https://github.com/ThompsonA93/Devos-Contracts#readme",
+  "homepage": "https://github.com/ThompsonA93/Devos-ETH-Net#readme",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "dotenv": "^16.0.3",
