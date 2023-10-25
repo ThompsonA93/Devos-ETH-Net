@@ -7,9 +7,6 @@
 const { network, run } = require("hardhat")
 
 const { deployApiConsumer } = require("./deployApiConsumer")
-const { deployAutomationCounter } = require("./deployAutomationCounter")
-const { deployPriceConsumerV3 } = require("./deployPriceConsumerV3")
-const { deployRandomNumberConsumer } = require("./deployRandomNumberConsumer")
 const {
     deployRandomNumberDirectFundingConsumer,
 } = require("./deployRandomNumberDirectFundingConsumer")
